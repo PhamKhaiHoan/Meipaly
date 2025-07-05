@@ -1,0 +1,197 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto", sans-serif;
+}
+
+.container {
+  width: 80%;
+  margin: 0 auto;
+  /* trên dưới 0 / trái phải auto */
+}
+
+header {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+}
+
+header .logo {
+  font-size: 26px;
+  font-weight: 700;
+  color: white;
+}
+
+header ul li a {
+  color: white;
+  font-size: 18px;
+  text-decoration: none;
+  transition: 0.3s;
+  font-weight: 500;
+}
+/* A,B => css liệt kê */
+header ul li a:hover,
+header .active {
+  color: #e62b4a;
+}
+
+header ul {
+  display: flex;
+  list-style-type: none;
+}
+
+header li {
+  margin-left: 20px;
+}
+
+/* flex box : dàn layout hàng ngang / dọc khi có nhiều item */
+
+header .container {
+  height: 80px;
+  /* border: 2px solid red; */
+  display: flex;
+  /* mặc định trục chính là chiều ngang / phục là dọc*/
+
+  /* trục chính :justify-content */
+  justify-content: space-between; /* căn đều các item */
+
+  /* trục phụ : align-items: ; */
+  align-items: center; /* căn đều các item theo chiều dọc */
+}
+
+/* start banner */
+
+.banner {
+  height: 100vh;
+  background-image: url(./image-video/home_slider.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  display: flex;
+  /* đổi trục chính flex sang trục dọc */
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+.banner h3 {
+  font-size: 40px;
+}
+
+.banner h2 {
+  text-align: center;
+  margin: 40px 0;
+  font-size: 75px;
+  font-weight: 900;
+}
+.banner button {
+  /* background: #af2239; */
+  background: #e62b4a;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  transition: 0.5s;
+}
+
+.banner button:hover {
+  background: #af2239;
+  cursor: pointer;
+}
+
+/* aboluste => Mất diện tích , di chuyển theo thẻ cha ( bọc ngoài + postion absolute hoặc relative ) */
+
+/* relative => Không mất diện tích, di chuyển từ vị trí hiện tại */
+
+.banner i {
+  font-size: 50px;
+  color: rgb(228, 106, 106);
+  margin-top: 20px;
+  /* gan animate */
+  animation: animate-color 2s infinite;
+  /*        tên - duration 1 animate - số lần lặp */
+}
+
+/* tạo animate */
+@keyframes animate-color {
+  0% {
+    color: rgb(255, 255, 255);
+    /* font-size: 20px; */
+    transform: translateY(0) rotate(0);
+  }
+  50% {
+    color: rgb(255, 130, 130);
+    /* font-size: 20px; */
+    transform: translateY(0) rotate(360deg);
+    
+  }
+  100% {
+  color: rgb(255, 0, 0);
+  transform: translateY(50px) rotate(360deg) scale(0);
+  transition: transform 5s ease;
+}
+
+}
+/* translateX : trái quan phải */
+/* translateY: trên xuống dưới */
+
+/* start service */
+.services {
+  background: #000000;
+}
+.services-title {
+  text-align: center;
+  color: white;
+
+}
+.services-title p:first-of-type {
+  color: #e62b4a;
+}
+.services-title p:last-of-type {
+  color: #888888;
+}
+
+.service-item {
+  color: #848482;
+  background-color: white;
+  width: 201px !important;
+  height: 230px;
+  margin: 0 10px;
+  display: flex !important;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative;
+}
+.service-item::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 0%;
+  width: 5px;
+  background: #ff0000;
+  transition:0.3s;
+}
+.service-slide {
+  /* display: flex; */
+  justify-content: center;
+}
+.service-item p {
+  margin-top: 10px;
+}
+.service-icon {
+  font-size: 50px;
+}
+.service-item:hover::after {
+  height: 100%;
+}
+.slick-dots li button:before {
+  font-size: 20px !important;
+}
+.slick-dots li.slick-active button:before {
+  color: red !important;
+}
+/* end service */
