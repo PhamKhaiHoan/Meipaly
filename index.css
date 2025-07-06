@@ -65,8 +65,8 @@ header .container {
 .banner {
   height: 100vh;
   background-image: url(./image-video/home_slider.jpg);
-  background-size: cover;
   background-repeat: no-repeat;
+  background-size: cover;
 
   display: flex;
   /* đổi trục chính flex sang trục dọc */
@@ -96,7 +96,8 @@ header .container {
 }
 
 .banner button:hover {
-  background: #af2239;
+  /* background: #af2239; */
+  background: black;
   cursor: pointer;
 }
 
@@ -106,92 +107,215 @@ header .container {
 
 .banner i {
   font-size: 50px;
-  color: rgb(228, 106, 106);
+  color: white;
   margin-top: 20px;
-  /* gan animate */
-  animation: animate-color 2s infinite;
-  /*        tên - duration 1 animate - số lần lặp */
+  /* gắn animate */
+
+  animation: animate-color 0.5s infinite;
+  /* tên - duration 1 animate - số lần lặp */
 }
 
 /* tạo animate */
+
 @keyframes animate-color {
   0% {
-    color: rgb(255, 255, 255);
+    color: black;
     /* font-size: 20px; */
-    transform: translateY(0) rotate(0);
+    transform: translateY(0) translateX(0) rotate(0) scale(0.5);
+    opacity: 1;
   }
   50% {
-    color: rgb(255, 130, 130);
-    /* font-size: 20px; */
-    transform: translateY(0) rotate(360deg);
-    
+    color: white;
+    /* font-size: 40px; */
+    transform: translateY(20px) translateX(20px);
   }
   100% {
-  color: rgb(255, 0, 0);
-  transform: translateY(50px) rotate(360deg) scale(0);
-  transition: transform 5s ease;
+    color: red;
+    /* font-size: 60px; */
+    transform: translateY(40px) translateX(-100px) rotate(360deg) scale(1.5);
+    opacity: 0.3;
+  }
 }
 
-}
-/* translateX : trái quan phải */
+/* stranslateX : trái quan phải */
 /* translateY: trên xuống dưới */
+/* rotate: xoay */
+/* scale: phóng to thu nhỏ */
 
-/* start service */
+/* --------start Service ------*/
+
 .services {
-  background: #000000;
+  background: black;
+  padding: 60px 0;
 }
-.services-title {
+
+.services__title {
   text-align: center;
+}
+
+.services__title p:first-of-type {
+  color: rgb(230, 43, 74);
+}
+
+.services__title p:last-of-type {
+  color: gray;
+}
+
+.services__title h1 {
   color: white;
-
-}
-.services-title p:first-of-type {
-  color: #e62b4a;
-}
-.services-title p:last-of-type {
-  color: #888888;
 }
 
-.service-item {
-  color: #848482;
-  background-color: white;
+.services__item {
+  color: gray;
+  background: white;
   width: 201px !important;
   height: 230px;
+
   margin: 0 10px;
+
   display: flex !important;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
   text-align: center;
+
   position: relative;
 }
-.service-item::after {
+
+/* khi dùng affter hoặc beffore thì phải có thuộc tính content */
+.services__item::after {
   content: "";
   position: absolute;
   top: 0;
   right: 0;
+  background: red;
   height: 0%;
-  width: 5px;
-  background: #ff0000;
-  transition:0.3s;
+  width: 10px;
+  transition: 0.5s;
 }
-.service-slide {
-  /* display: flex; */
-  justify-content: center;
+
+.services__slides {
+  display: flex;
 }
-.service-item p {
-  margin-top: 10px;
+
+.services__icon {
+  font-size: 30px;
 }
-.service-icon {
-  font-size: 50px;
-}
-.service-item:hover::after {
+
+.services__item:hover::after {
   height: 100%;
 }
+
 .slick-dots li button:before {
   font-size: 20px !important;
+  color: white !important;
+  /* opacity là thuộc tính quyết định sự trong suốt của element 0 -> 1 */
+  opacity: 1 !important;
 }
+
 .slick-dots li.slick-active button:before {
   color: red !important;
 }
-/* end service */
+
+/*------- end services --------*/
+
+/* ------- Start blog------- */
+.blog__content {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px; /* khoang cách giữa các item */
+}
+.blog__item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(50%) contrast(50%);
+}
+.blog__content .blog_1 {
+  grid-column: 1 / span 2;
+  /* bat dau từ cột 1 và kéo dài qua 2 cột */
+  grid-row: 1 / span 2;
+  /* bat dau từ hàng 1 và kéo dài qua 2 hàng */
+}
+.blog__content .blog_10 {
+  grid-column: 3 / span 2;
+  /* bat dau từ cột 3 và kéo dài qua 2 cột */
+  grid-row: 3 / span 2;
+  /* bat dau từ hàng 3 và kéo dài qua 2 hàng */
+}
+.overlay {
+  background: rgba(230, 43, 74, 0.6);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: 0.5s;
+}
+.overlay:hover {
+  opacity: 1;
+}
+.blog__item {
+  position: relative;
+}
+.blog__item .overlay_icon {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  transform: translateY(30px);
+  transition: 0.35s;
+}
+.blog__item:hover .overlay_icon {
+  transform: translateY(0);
+}
+.blog__item .overlay_text {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  transform: translateY(30px);
+  transition: 0.35s;
+}
+.blog__item:hover .overlay_text {
+  transform: translateY(0);
+}
+.overlay_text p:first-of-type {
+  color: gray;
+}
+.overlay_text p:last-of-type {
+  color: white;
+}
+.overlay_icon {
+  padding: 5px;
+}
+.overlay_icon i {
+  color: black;
+}
+.overlay_icon i:hover {
+  color: white;
+  transition: 0.5s;
+}
+/* ------- end blog------- */
+
+/* start number */
+.number {
+  background: black;
+  padding: 30px 0;
+  text-align: center;
+}
+.number_content {
+  display: flex;
+  justify-content: space-around;
+}
+.number_item p:first-of-type {
+  font-size: 60px;
+  font-weight: 400;
+  color: white;
+}
+.number_item p:last-of-type {
+  font-size: 20px;
+  color: gray;
+}
+
+/* end number */
