@@ -319,3 +319,186 @@ header .container {
 }
 
 /* end number */
+
+/* --- CSS CHO PHẦN MỚI THÊM (ABOUT, CONTACT, FOOTER) --- */
+
+/* About Us */
+.about {
+    padding: 80px 0;
+}
+.about__content {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+.about__left {
+    width: 50%;
+}
+.about__left img {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+.about__right {
+    width: 50%;
+}
+.about__right p:first-child {
+    color: #e62b4a;
+    font-weight: bold;
+}
+.about__right h2 {
+    font-size: 40px;
+    margin: 15px 0;
+}
+.about__right button {
+    background: #e62b4a;
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    margin-top: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.about__right button:hover {
+    background: black;
+}
+
+/* Contact */
+.contact {
+    padding: 80px 0;
+    background-color: #f8f9fa;
+    text-align: center;
+}
+.contact__title p {
+    color: #e62b4a;
+    font-weight: bold;
+}
+.contact__title h2 {
+    font-size: 40px;
+    margin-bottom: 30px;
+}
+.contact__form form {
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+.contact__form input, 
+.contact__form textarea {
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    outline: none;
+}
+.contact__form button {
+    padding: 15px;
+    background: black;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
+    font-weight: bold;
+}
+.contact__form button:hover {
+    background: #e62b4a;
+}
+
+/* Footer */
+footer {
+    background: #111;
+    color: white;
+    padding: 30px 0;
+}
+.footer__content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.footer__social a {
+    color: white;
+    margin-left: 15px;
+    font-size: 18px;
+    transition: 0.3s;
+}
+.footer__social a:hover {
+    color: #e62b4a;
+}
+
+/* --- RESPONSIVE (MOBILE & TABLET) --- */
+
+/* Tablet (max-width: 992px) */
+@media screen and (max-width: 992px) {
+    .container {
+        width: 90%;
+    }
+    .banner h2 {
+        font-size: 50px;
+    }
+    .about__content {
+        flex-direction: column;
+        text-align: center;
+    }
+    .about__left, .about__right {
+        width: 100%;
+    }
+    .blog__content {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    /* Reset grid spans for tablet */
+    .blog__content .blog_1,
+    .blog__content .blog_10 {
+        grid-column: auto;
+        grid-row: auto;
+    }
+}
+
+/* Mobile (max-width: 576px) */
+@media screen and (max-width: 576px) {
+    /* Header */
+    header .container {
+        flex-direction: column;
+        height: auto;
+        padding: 10px 0;
+    }
+    header ul {
+        margin-top: 10px;
+        gap: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    header li {
+        margin-left: 0;
+    }
+
+    /* Banner */
+    .banner h3 {
+        font-size: 20px;
+        text-align: center;
+    }
+    .banner h2 {
+        font-size: 35px;
+    }
+    
+    /* Services */
+    .services__item {
+        width: 100% !important; /* Force full width in slider if needed, or adjust js slidesToShow */
+    }
+
+    /* Blog */
+    .blog__content {
+        grid-template-columns: 1fr; /* 1 cột */
+    }
+    
+    /* Number */
+    .number_content {
+        flex-direction: column;
+        gap: 30px;
+    }
+    
+    /* Footer */
+    .footer__content {
+        flex-direction: column;
+        gap: 15px;
+    }
+}
