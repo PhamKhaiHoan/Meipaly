@@ -117,24 +117,132 @@ header .container {
 
 /* tạo animate */
 
-@keyframes animate-color {
+/* --- 1. ANIMATION MŨI TÊN (Thay thế @keyframes animate-color cũ) --- */
+@keyframes moveDown {
   0% {
-    color: black;
-    /* font-size: 20px; */
-    transform: translateY(0) translateX(0) rotate(0) scale(0.5);
+    transform: translateY(0);
     opacity: 1;
   }
   50% {
-    color: white;
-    /* font-size: 40px; */
-    transform: translateY(20px) translateX(20px);
+    transform: translateY(15px); /* Di chuyển xuống 15px */
+    opacity: 0.6; /* Mờ đi một chút */
   }
   100% {
-    color: red;
-    /* font-size: 60px; */
-    transform: translateY(40px) translateX(-100px) rotate(360deg) scale(1.5);
-    opacity: 0.3;
+    transform: translateY(0);
+    opacity: 1;
   }
+}
+
+.banner i {
+  font-size: 40px; /* Giảm size chút cho tinh tế */
+  color: white;
+  margin-top: 30px;
+  cursor: pointer;
+  /* Áp dụng animation mới: tên - thời gian - kiểu chạy - lặp lại */
+  animation: moveDown 2s infinite ease-in-out; 
+}
+
+/* --- 2. CẢI THIỆN FONT & TYPOGRAPHY --- */
+
+/* Reset font chung cho toàn trang */
+body {
+    font-family: "Roboto", sans-serif;
+    line-height: 1.6; /* Tăng khoảng cách dòng cho dễ đọc */
+    color: #636363;   /* Màu chữ xám nhẹ dịu mắt hơn đen tuyền */
+    font-size: 15px;
+}
+
+/* Header Menu */
+header ul li a {
+    font-size: 14px;
+    font-weight: 500;
+    text-transform: uppercase; /* Chữ in hoa */
+    letter-spacing: 1px;       /* Giãn khoảng cách chữ */
+}
+
+/* Banner Typography */
+.banner h3 {
+    font-size: 24px;
+    font-weight: 300; /* Nét mảnh hiện đại */
+    letter-spacing: 4px; /* Giãn rộng tạo cảm giác sang trọng */
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    color: rgba(255,255,255,0.9);
+}
+
+.banner h2 {
+    font-size: 80px; /* Tăng kích thước */
+    font-weight: 900; /* Nét siêu đậm */
+    line-height: 1.1;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin: 20px 0 40px 0;
+    text-shadow: 0 5px 15px rgba(0,0,0,0.3); /* Đổ bóng chữ nhẹ */
+}
+
+/* Button Style update */
+.banner button {
+    font-weight: 700;
+    letter-spacing: 1px;
+    border-radius: 5px; /* Bo góc nhẹ */
+    padding: 15px 35px;
+    font-size: 14px;
+}
+
+/* Tiêu đề các Section (Services, Blog, Contact) */
+.services__title p:first-of-type,
+.blog__title p:first-of-type,
+.contact__title p:first-of-type,
+.title p {
+    font-family: "Roboto", sans-serif;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.services__title h1,
+.blog__title h1,
+.contact__title h2,
+.title h2 {
+    font-size: 40px;
+    font-weight: 800;
+    color: #262626;
+    line-height: 1.2;
+    margin-bottom: 20px;
+    text-transform: capitalize; /* Viết hoa chữ cái đầu */
+}
+
+.services__title p:last-of-type,
+.blog__title p:last-of-type {
+    max-width: 600px;
+    margin: 0 auto 50px auto; /* Căn giữa đoạn mô tả */
+    font-size: 16px;
+    color: #636363;
+}
+
+/* Item text */
+.services__item p {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.4;
+    color: #333;
+}
+
+/* Mobile Responsive cho Font (Thêm vào cuối file CSS) */
+@media screen and (max-width: 576px) {
+    .banner h3 {
+        font-size: 16px;
+        letter-spacing: 2px;
+    }
+    .banner h2 {
+        font-size: 40px;
+    }
+    .services__title h1, 
+    .blog__title h1 {
+        font-size: 28px;
+    }
 }
 
 /* stranslateX : trái quan phải */
